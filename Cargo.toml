@@ -1,8 +1,14 @@
-[package]
-name = "sonata-server"
-version = "0.1.0"
-edition = "2024"
-description = "A music server designed to take advantage of Musicbrainz tagging."
-license = "MIT"
+[workspace]
+resolver = "3"
+members = ["sonata-server"]
 
-[dependencies]
+[workspace.package]
+version = "0.1.0"
+authors = ["Suya1671 <suyashtnt@gmail.com>"]
+license = "MIT"
+edition = "2024"
+
+[workspace.lints.clippy]
+pedantic = "warn"
+nursery = "warn"
+cargo = "warn"
