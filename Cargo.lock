@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "sonata"
+name = "sonata-server"
 version = "0.1.0"
