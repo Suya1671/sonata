@@ -2,5 +2,7 @@
 name = "sonata-server"
 version = "0.1.0"
 edition = "2024"
+description = "A music server designed to take advantage of Musicbrainz tagging."
+license = "MIT"
 
 [dependencies]
