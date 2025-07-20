@@ -1,12 +1,23 @@
 [workspace]
 resolver = "3"
-members = ["sonata-server"]
+members = ["sonata-server", "sonata-openapi", "auto-async-send-sync"]
 
 [workspace.package]
 version = "0.1.0"
 authors = ["Suya1671 <suyashtnt@gmail.com>"]
 license = "MIT"
 edition = "2024"
+
+[workspace.dependencies]
+sonata-openapi = { path = "./sonata-openapi" }
+sonata-server = { path = "./sonata-server" }
+thiserror = "2"
+displaydoc = "0.2"
+error-stack = "0.5"
+axum = { version = "0.8", features = ["multipart"] }
+axum-extra = { version = "0.10", features = ["cookie", "query"] }
+http = "1"
+bytes = "1"
 
 [workspace.lints.clippy]
 pedantic = "warn"

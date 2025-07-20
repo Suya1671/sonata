@@ -1,0 +1,19 @@
+[package]
+name = "auto-async-send-sync"
+description = "Automatically implement Send and Sync for async traits"
+keywords = ["async", "send", "sync"]
+version.workspace = true
+authors.workspace = true
+license.workspace = true
+edition.workspace = true
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "2"
+quote = "1"
+proc-macro2 = "1"
+
+[lints]
+workspace = true
