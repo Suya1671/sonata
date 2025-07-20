@@ -13,13 +13,36 @@ sonata-openapi = { path = "./sonata-openapi" }
 sonata-server = { path = "./sonata-server" }
 thiserror = "2"
 displaydoc = "0.2"
-error-stack = "0.5"
+error-stack = { version = "0.5", features = [
+    "hooks",
+    "serde",
+    "spantrace",
+] }
 axum = { version = "0.8", features = ["multipart"] }
 axum-extra = { version = "0.10", features = ["cookie", "query"] }
 http = "1"
 bytes = "1"
+tokio = { version = "1", default-features = false, features = [
+    "signal",
+    "rt-multi-thread",
+    "fs"
+] }
+tracing = { version = "0.1", features = ["attributes"] }
+tracing-subscriber = { version = "0.3", features = ["env-filter"]}
+tracing-error = "0.2.1"
+tracing-journald = "0.3.1"
+dotenvy = { git = "https://github.com/allan2/dotenvy", features = ["macros"] }
+sqlx = { version = "0.8.6", features = [
+    "runtime-tokio",
+    "sqlite",
+    "sqlite-preupdate-hook",
+    "migrate",
+    "time",
+] }
+tower-http = { version = "0.6.6", features = ["trace"] }
 
 [workspace.lints.clippy]
 pedantic = "warn"
 nursery = "warn"
-cargo = "warn"
+# Will add before deployment
+# cargo = "warn"

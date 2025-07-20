@@ -1,16 +1,14 @@
+use super::{Server, ServerError};
 use axum_extra::extract::{CookieJar, Host};
 use error_stack::{Report, Result};
 use http::Method;
 use sonata_openapi::{
-    apis::system::{
-        GetLicenseResponse, PingResponse, PostGetLicenseResponse, PostPingResponse, System,
-    },
-    types,
+    API_VERSION,
+    apis::system::{GetLicenseResponse, PingResponse, PostGetLicenseResponse, PostPingResponse},
+    models, types,
 };
 
-use super::{Server, ServerError};
-
-impl System<Report<ServerError>> for Server {
+impl sonata_openapi::apis::system::System<Report<ServerError>> for Server {
     async fn get_license(
         &self,
         method: &Method,
@@ -26,7 +24,20 @@ impl System<Report<ServerError>> for Server {
         host: &Host,
         cookies: &CookieJar,
     ) -> Result<PingResponse, ServerError> {
-        todo!()
+        Ok(PingResponse::Status200_SuccessfulOrFailedResponse(
+            models::SubsonicResponse {
+                subsonic_response: Some(
+                    models::SubsonicSuccessResponse {
+                        version: API_VERSION.to_string(),
+                        r#type: "Sonata".to_string(),
+                        server_version: env!("CARGO_PKG_VERSION").to_string(),
+                        open_subsonic: true,
+                        status: "ok".to_string(),
+                    }
+                    .into(),
+                ),
+            },
+        ))
     }
 
     async fn post_get_license(
@@ -46,6 +57,10 @@ impl System<Report<ServerError>> for Server {
         cookies: &CookieJar,
         body: &Option<types::Object>,
     ) -> Result<PostPingResponse, ServerError> {
-        todo!()
+        Ok(match self.ping(method, host, cookies).await? {
+            PingResponse::Status200_SuccessfulOrFailedResponse(res) => {
+                PostPingResponse::Status200_SuccessfulOrFailedResponse(res)
+            }
+        })
     }
 }

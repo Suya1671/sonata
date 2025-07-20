@@ -8,4 +8,4 @@ For someone seeing this on crates.io, I've parked the name. Feel free to ask for
 _Required for Summer Of Making by Hack Club_
 - General edit predictions/code completion
 - I used a prompt to generate a lot of boilerplate trait impls for the server impl
-  - It basically just made a bunch of trait impls and todo!()'s. No actual meaningful code was generated
+  - It basically just made a bunch of trait impls and todo!()'s. No actual meaningful code was generated. See commit f7d846ce

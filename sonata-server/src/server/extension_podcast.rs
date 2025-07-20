@@ -1,3 +1,4 @@
+#![allow(unused_variables)]
 use axum_extra::extract::{CookieJar, Host};
 use error_stack::{Report, Result};
 use http::Method;

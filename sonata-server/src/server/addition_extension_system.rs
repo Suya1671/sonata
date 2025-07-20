@@ -1,3 +1,4 @@
+#![allow(unused_variables)]
 use axum_extra::extract::{CookieJar, Host};
 use error_stack::{Report, Result};
 use http::Method;
@@ -5,7 +6,7 @@ use sonata_openapi::{
     apis::addition_extension_system::{
         AdditionExtensionSystem, PostTokenInfoResponse, TokenInfoResponse,
     },
-    models, types,
+    types,
 };
 
 use super::{Server, ServerError};
