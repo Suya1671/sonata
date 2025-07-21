@@ -4,6 +4,16 @@ A music server designed to take advantage of Musicbrainz tagging.
 
 For someone seeing this on crates.io, I've parked the name. Feel free to ask for it from me if the repo is still empty at suyashtnt@gmail.com
 
+# TODOs
+- [ ] File scanner
+  - [ ] Tag scanner
+  - [ ] Lyrics scanner
+  - [ ] Cover art scanner
+- [ ] OpenSubsonic Complete implementation
+- [ ] Musicbrainz API integration
+- [ ] lrclib integration
+- [ ] Database integration
+
 # AI Usage
 _Required for Summer Of Making by Hack Club_
 - General edit predictions/code completion
